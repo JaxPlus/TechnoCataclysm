@@ -4,6 +4,7 @@ ServerEvents.recipes((event) => {
     // Recipes in machines
     event.remove("thermal:machines/smelter/smelter_alloy_netherite");
     event.remove("thermal:machines/smelter/smelter_alloy_enderium");
+    event.remove("thermal:machines/smelter/smelter_alloy_steel");
 
     // Ingots wt fire_charge
     event.remove("thermal:fire_charge/enderium_ingot_2");
@@ -33,7 +34,18 @@ ServerEvents.recipes((event) => {
         R: "thermal:rf_coil",
     });
 
-    // event.recipes.thermal.press("iron_cinnabar_blend", [""])
+    event.shaped("kubejs:witherite_gear", [" W ", "WIW", " W "], {
+        W: "cataclysm:witherite_ingot",
+        I: "#forge:nuggets/iron",
+    });
+
+    // Press
+    event.recipes.thermal.press(
+        ["kubejs:witherite_gear"],
+        [Item.of("cataclysm:witherite_ingot", 2), "thermal:press_gear_die"],
+        0,
+        5000
+    );
 
     // Smelter
     event.recipes.thermal.smelter(

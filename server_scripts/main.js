@@ -20,12 +20,6 @@ function fusedObsidians(ingot) {
 const fusedObsidiansTempl = [" L ", "IOI", " E "];
 
 ServerEvents.entityLootTables((event) => {
-    event.modifyEntity("blue_skies:summoner", (table) => {
-        table.addPool((pool) => {
-            pool.addItem("minecraft:acacia_button").count(5);
-        });
-    });
-
     event.modifyEntity("cataclysm:netherite_monstrosity", (table) => {
         table.pools.remove({
             name: "hammer",
@@ -35,6 +29,54 @@ ServerEvents.entityLootTables((event) => {
             ],
         });
     });
+
+    event.modifyEntity("cataclysm:ender_golem", (table) => {
+        table.clearPools();
+
+        table.addPool((pool) => {
+            pool.addItem("kubejs:ender_soul", 1, 1).count({ min: 1, max: 2 });
+        });
+    });
+
+    event.modifyEntity("blue_skies:arachnarch", (table) => {
+        table.addPool((pool) => {
+            pool.addItem("kubejs:arachnarch_fang").count({ min: 1, max: 2 });
+        });
+    });
+});
+
+ServerEvents.chestLootTables((event) => {
+    // event.modify(ResourceLocation.of(""))
+    // event.addChest("minecraft:chests/?")
+    // event.addChest("minecraft:chests/end_city_treasure", (pool) => {
+    //     pool.pools.remove({
+    //         name: "simplyswords:runic_tablet",
+    //     });
+    // });
+});
+
+LootJS.modifiers((event) => {
+    event.enableLogging();
+
+    event
+        .addLootTypeModifier(LootType.CHEST)
+        .removeLoot("simplyswords:runic_tablet");
+
+    event
+        .addLootTypeModifier(LootType.CHEST)
+        .removeLoot("#simplyswords:uniques");
+
+    event
+        .addLootTypeModifier(LootType.CHEST)
+        .removeLoot("#forge:ingots/netherite");
+
+    event
+        .addEntityLootModifier("minecraft:wither")
+        .removeLoot("#simplyswords:uniques");
+
+    event
+        .addEntityLootModifier("minecraft:ender_dragon")
+        .removeLoot("#simplyswords:uniques");
 });
 
 ServerEvents.recipes((event) => {
@@ -86,6 +128,7 @@ ServerEvents.recipes((event) => {
         F: "#forge:ingots/iron",
         R: "mekanism:ingot_refined_obsidian",
     });
+
     event.custom({
         type: "minecraft:smithing_transform",
         template: { item: "cataclysm:ignitium_upgrade_smithing_template" },
@@ -101,6 +144,7 @@ ServerEvents.recipes((event) => {
     });
 
     // Armors
+    /** @todo ZMIEŃ JAK SIĘ ROBI TEN ARMOR */
     event.shaped(
         "minecraft:diamond_helmet",
         ["   ", "DCD", "D D"],

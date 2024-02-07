@@ -6,6 +6,7 @@ ServerEvents.recipes((event) => {
     event.remove("mekanism:processing/refined_glowstone/ingot/from_dust");
     event.remove("mekanism:enriching/conversion/obsidian_to_obsidian_dust");
     event.remove("mekanism:atomic_disassembler");
+    event.remove("mekanism:jetpack");
 
     // Common items
     event.remove("mekanism:metallurgic_infuser");
@@ -22,8 +23,16 @@ ServerEvents.recipes((event) => {
         I: "mekanism:alloy_infused",
         O: "mekanism:ingot_refined_obsidian",
         E: "deeperdarker:reinforced_echo_shard",
-        A: "mekanism:alloy_atomic",
+        A: "#forge:alloys/ultimate",
         T: "mekanism:energy_tablet",
+    });
+
+    event.shaped("mekanism:jetpack", ["SBS", "OCO", " T "], {
+        S: "#forge:ingots/steel",
+        O: "mekanism:ingot_refined_obsidian",
+        C: "mekanism:basic_chemical_tank",
+        B: "#forge:circuits/basic",
+        T: "#forge:ingots/tin",
     });
 
     event.custom({
@@ -52,6 +61,53 @@ ServerEvents.recipes((event) => {
         output: {
             count: 4,
             item: "mekanism:dust_obsidian",
+        },
+    });
+
+    event.custom({
+        type: "mekanism:combining",
+        extraInput: {
+            ingredient: {
+                item: "kubejs:celestial_fusion_ingot",
+            },
+        },
+        mainInput: {
+            amount: 2,
+            ingredient: {
+                item: "minecraft:blaze_rod",
+            },
+        },
+        output: {
+            item: "kubejs:celestial_rod",
+        },
+    });
+
+    event.custom({
+        type: "mekanism:combining",
+        extraInput: {
+            ingredient: {
+                item: "minecraft:netherite_ingot",
+            },
+        },
+        mainInput: {
+            ingredient: {
+                item: "kubejs:celestial_rod",
+            },
+        },
+        output: {
+            item: "kubejs:netherite_rod",
+        },
+    });
+
+    event.custom({
+        type: "mekanism:crushing",
+        input: {
+            ingredient: {
+                item: "fluxnetworks:flux_core",
+            },
+        },
+        output: {
+            item: "minecraft:ender_eye",
         },
     });
 });

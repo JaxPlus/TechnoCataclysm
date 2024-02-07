@@ -28,22 +28,41 @@ StartupEvents.registry("item", (event) => {
     event
         .create("celestial_fusion_ingot")
         .displayName("§4Celestial Fusion Ingot");
+
+    event.create("celestial_rod").displayName("§4Celestial Rod");
+
+    event.create("witherite_gear").displayName("§dWitherite Gear");
+
+    event.create("ender_soul").displayName("§dEnder Soul");
+
+    event.create("arachnarch_fang").displayName("§5Arachnarch Fang");
+
+    event
+        .create("netherite_rod")
+        .displayName("Netherite Rod")
+        .tag("forge:rods")
+        .tag("forge:rods/netherite")
+        .tag("forge:rods/metal");
 });
 
 ItemEvents.modification((event) => {
     event.modify("immersive_armors:prismarine_helmet", (item) => {
-        item.maxDamage = 313;
+        item.maxDamage = 283;
     });
 
     event.modify("immersive_armors:prismarine_chestplate", (item) => {
-        item.maxDamage = 512;
+        item.maxDamage = 482;
     });
 
     event.modify("immersive_armors:prismarine_leggings", (item) => {
-        item.maxDamage = 472;
+        item.maxDamage = 452;
     });
 
     event.modify("immersive_armors:prismarine_boots", (item) => {
-        item.maxDamage = 431;
+        item.maxDamage = 421;
+    });
+
+    event.modify("cataclysm:void_forge", (item) => {
+        item.setAttackDamage(15);
     });
 });
