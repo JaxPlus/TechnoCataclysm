@@ -129,20 +129,6 @@ ServerEvents.recipes((event) => {
         R: "mekanism:ingot_refined_obsidian",
     });
 
-    event.custom({
-        type: "minecraft:smithing_transform",
-        template: { item: "cataclysm:ignitium_upgrade_smithing_template" },
-        base: {
-            item: "blue_skies:crushing_hammer",
-        },
-        addition: {
-            item: "kubejs:celestial_fusion_ingot",
-        },
-        result: {
-            item: "cataclysm:infernal_forge",
-        },
-    });
-
     // Armors
     /** @todo ZMIEŃ JAK SIĘ ROBI TEN ARMOR */
     event.shaped(

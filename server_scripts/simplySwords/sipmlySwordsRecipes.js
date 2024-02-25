@@ -44,4 +44,61 @@ ServerEvents.recipes((event) => {
         N: "#forge:ingots/netherite",
         R: "#forge:rods/netherite",
     });
+
+    event.shaped("simplyswords:watching_warglaive", ["   ", "YVY", "RCR"], {
+        R: "deeperdarker:reinforced_echo_shard",
+        V: "cataclysm:void_core",
+        Y: "minecraft:ender_eye",
+        C: "#forge:rods/netherite",
+    });
+
+    event.shaped("simplyswords:emberblade", [" HB", "OBH", "RO "], {
+        B: "thermal:basalz_rod",
+        O: "kubejs:obsidian_block_signalum",
+        R: "#forge:rods/blaze",
+        H: "#blue_skies:ingots/horizonite",
+    });
+
+    event.shaped("simplyswords:hearthflame", ["NON", "OHO", " R "], {
+        H: "cataclysm:monstrous_horn",
+        O: "kubejs:obsidian_block_signalum",
+        N: "#forge:ingots/netherite",
+        R: "#forge:rods/netherite",
+    });
+
+    event.shaped("simplyswords:soulkeeper", ["OEO", "ESE", " R "], {
+        E: "#forge:alloys/elite",
+        R: "#forge:rods/netherite",
+        S: "kubejs:ender_soul",
+        O: "kubejs:obsidian_block_enderium",
+    });
+
+    event.shaped("simplyswords:twisted_blade", [" DI", "EID", "RE "], {
+        E: "deeperdarker:reinforced_echo_shard",
+        R: "#forge:rods/netherite",
+        D: "#forge:gems/diamond",
+        I: "#forge:ingots/iron",
+    });
+
+    event.shaped("simplyswords:soulstealer", ["   ", "SE ", "RS "], {
+        E: "#forge:ingots/enderium",
+        S: "aquamirae:ship_graveyard_echo",
+        R: "#forge:rods/enderium",
+    });
+
+    event.shaped("simplyswords:soulrender", ["OES", "OT ", "R  "], {
+        E: "#forge:ingots/enderium",
+        S: "kubejs:ender_soul",
+        R: "#forge:rods/enderium",
+        O: "#forge:ingots/refined_obsidian",
+        T: "#forge:rods/steel",
+    });
+
+    event.shaped("simplyswords:soulpyre", ["SOS", "LEL", " R "], {
+        E: "#forge:rods/enderium",
+        S: "aquamirae:ship_graveyard_echo",
+        L: "#forge:ingots/refined_glowstone",
+        O: "kubejs:obsidian_block_enderium",
+        R: "#forge:rods/steel",
+    });
 });

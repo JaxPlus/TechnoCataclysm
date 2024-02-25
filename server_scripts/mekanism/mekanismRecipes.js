@@ -1,15 +1,37 @@
 // priority: 0
 
+/**
+ * @param {string} armor
+ * @return {object}
+ */
+function mekaRecipes(armor) {
+    return {
+        N: armor,
+        H: "mekanism:hdpe_sheet",
+        C: "#forge:circuits/meka",
+        P: "#forge:pellets/polonium",
+        I: "mekanism:basic_induction_cell",
+    };
+}
+
 ServerEvents.recipes((event) => {
     // Recipes in machines
     event.remove("mekanism:processing/netherite/scrap_to_dust");
     event.remove("mekanism:processing/refined_glowstone/ingot/from_dust");
     event.remove("mekanism:enriching/conversion/obsidian_to_obsidian_dust");
-    event.remove("mekanism:atomic_disassembler");
-    event.remove("mekanism:jetpack");
 
     // Common items
     event.remove("mekanism:metallurgic_infuser");
+    event.remove("mekanism:atomic_disassembler");
+    event.remove("mekanism:jetpack");
+    event.remove("mekanism:mekasuit_helmet");
+    event.remove("mekanism:mekasuit_bodyarmor");
+    event.remove("mekanism:mekasuit_pants");
+    event.remove("mekanism:mekasuit_boots");
+    event.remove("mekanism:meka_tool");
+    event.remove("mekaweapons:mekatana");
+    event.remove("mekaweapons:mekabow");
+    event.remove("mekanism:modification_station");
 
     // zamień żelazo z innym mid game ingotem
     event.shaped("mekanism:metallurgic_infuser", ["SFS", "ROR", "SFS"], {
@@ -33,6 +55,62 @@ ServerEvents.recipes((event) => {
         C: "mekanism:basic_chemical_tank",
         B: "#forge:circuits/basic",
         T: "#forge:ingots/tin",
+    });
+
+    event.shaped(
+        "mekanism:mekasuit_helmet",
+        ["HCH", "HNH", "PIP"],
+        mekaRecipes("cataclysm:ignitium_helmet")
+    );
+    event.shaped(
+        "mekanism:mekasuit_bodyarmor",
+        ["HCH", "HNH", "PIP"],
+        mekaRecipes("cataclysm:ignitium_chestplate")
+    );
+    event.shaped(
+        "mekanism:mekasuit_pants",
+        ["HCH", "HNH", "PIP"],
+        mekaRecipes("cataclysm:ignitium_leggings")
+    );
+    event.shaped(
+        "mekanism:mekasuit_boots",
+        ["HCH", "HNH", "PIP"],
+        mekaRecipes("cataclysm:ignitium_boots")
+    );
+
+    event.shaped("mekanism:meka_tool", ["CFC", "HAH", "PIP"], {
+        H: "mekanism:hdpe_sheet",
+        C: "#forge:circuits/meka",
+        P: "#forge:pellets/polonium",
+        I: "mekanism:basic_induction_cell",
+        F: "mekanism:configurator",
+        A: "mekanism:atomic_disassembler",
+    });
+
+    event.shaped("mekaweapons:mekatana", ["CBC", "HSH", "PIP"], {
+        H: "mekanism:hdpe_sheet",
+        C: "#forge:circuits/meka",
+        P: "#forge:pellets/polonium",
+        I: "mekanism:basic_induction_cell",
+        B: "mekaweapons:katana_blade",
+        S: "#forge:ingots/steel",
+    });
+
+    event.shaped("mekaweapons:mekabow", ["PBP", "CIC", "RFR"], {
+        C: "#forge:circuits/meka",
+        P: "#forge:pellets/polonium",
+        I: "mekanism:basic_induction_cell",
+        B: "mekaweapons:bow_riser",
+        R: "#forge:ingots/refined_obsidian",
+        F: "mekaweapons:bow_limb",
+    });
+
+    event.shaped("mekanism:modification_station", ["HEH", "CSC", "HPH"], {
+        H: "mekanism:hdpe_sheet",
+        C: "#forge:circuits/meka",
+        P: "#forge:pellets/polonium",
+        E: "#forge:chests/wooden",
+        S: "mekanism:steel_casing",
     });
 
     event.custom({
@@ -108,6 +186,22 @@ ServerEvents.recipes((event) => {
         },
         output: {
             item: "minecraft:ender_eye",
+        },
+    });
+
+    event.custom({
+        type: "mekanism:injecting",
+        chemicalInput: {
+            amount: 5,
+            gas: "mekanism:sulfuric_acid",
+        },
+        itemInput: {
+            ingredient: {
+                tag: "forge:circuits/ultimate",
+            },
+        },
+        output: {
+            item: "kubejs:meka_control_circuit",
         },
     });
 });

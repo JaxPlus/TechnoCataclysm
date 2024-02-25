@@ -13,7 +13,6 @@ ServerEvents.recipes((event) => {
 
     // Common items
     event.remove("thermal:machine_frame");
-    event.remove("thermal:machine_pulverizer");
 
     // Dusts
     event.remove("thermal:enderium_dust_2");
@@ -24,14 +23,6 @@ ServerEvents.recipes((event) => {
         A: "blue_skies:aquite",
         G: "#forge:glass",
         T: "thermal:tin_gear",
-    });
-
-    event.shaped("thermal:machine_pulverizer", [" P ", "DMD", "CRC"], {
-        P: "minecraft:piston",
-        D: "blue_skies:diopside_gem",
-        M: "thermal:machine_frame",
-        C: "#forge:gears/copper",
-        R: "thermal:rf_coil",
     });
 
     event.shaped("kubejs:witherite_gear", [" W ", "WIW", " W "], {

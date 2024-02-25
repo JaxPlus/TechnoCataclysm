@@ -1,9 +1,34 @@
+/**
+ * @param {string} base
+ * @param {string} result
+ * @return {object}
+ */
+function ignitumTempl(base, result) {
+    return {
+        type: "minecraft:smithing_transform",
+        template: { item: "cataclysm:ignitium_upgrade_smithing_template" },
+        base: {
+            item: base,
+        },
+        addition: {
+            item: "cataclysm:ignitium_ingot",
+        },
+        result: {
+            item: result,
+        },
+    };
+}
+
 ServerEvents.recipes((event) => {
     event.remove("cataclysm:the_incinerator");
     event.remove("cataclysm:ignitium_upgrade_smithing_template");
     event.remove("cataclysm:meat_shredder");
     event.remove("cataclysm:wither_assault_shoulder_weapon");
     event.remove("cataclysm:laser_gatling");
+    event.remove("cataclysm:smithing/ignitium_helmet");
+    event.remove("cataclysm:smithing/ignitium_chestplate");
+    event.remove("cataclysm:smithing/ignitium_leggings");
+    event.remove("cataclysm:smithing/ignitium_boots");
 
     event.shaped("cataclysm:the_incinerator", [" BI", "BCB", "NB "], {
         B: "minecraft:blaze_rod",
@@ -57,4 +82,37 @@ ServerEvents.recipes((event) => {
         N: "kubejs:ender_soul",
         E: "#forge:ingots/enderium",
     });
+
+    event.custom({
+        type: "minecraft:smithing_transform",
+        template: { item: "cataclysm:ignitium_upgrade_smithing_template" },
+        base: {
+            item: "blue_skies:crushing_hammer",
+        },
+        addition: {
+            item: "kubejs:celestial_fusion_ingot",
+        },
+        result: {
+            item: "cataclysm:infernal_forge",
+        },
+    });
+
+    event.custom(
+        ignitumTempl("deeperdarker:warden_helmet", "cataclysm:ignitium_helmet")
+    );
+    event.custom(
+        ignitumTempl(
+            "deeperdarker:warden_chestplate",
+            "cataclysm:ignitium_chestplate"
+        )
+    );
+    event.custom(
+        ignitumTempl(
+            "deeperdarker:warden_leggings",
+            "cataclysm:ignitium_leggings"
+        )
+    );
+    event.custom(
+        ignitumTempl("deeperdarker:warden_boots", "cataclysm:ignitium_boots")
+    );
 });

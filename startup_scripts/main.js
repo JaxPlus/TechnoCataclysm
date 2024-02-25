@@ -29,7 +29,12 @@ StartupEvents.registry("item", (event) => {
         .create("celestial_fusion_ingot")
         .displayName("§4Celestial Fusion Ingot");
 
-    event.create("celestial_rod").displayName("§4Celestial Rod");
+    event
+        .create("celestial_rod")
+        .displayName("§4Celestial Rod")
+        .tag("forge:rods")
+        .tag("forge:rods/celestial")
+        .tag("forge:rods/metal");
 
     event.create("witherite_gear").displayName("§dWitherite Gear");
 
@@ -43,6 +48,12 @@ StartupEvents.registry("item", (event) => {
         .tag("forge:rods")
         .tag("forge:rods/netherite")
         .tag("forge:rods/metal");
+
+    event
+        .create("meka_control_circuit")
+        .displayName("§7Meka Control Circuit")
+        .tag("forge:circuits")
+        .tag("forge:circuits/meka");
 });
 
 ItemEvents.modification((event) => {
