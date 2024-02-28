@@ -6,7 +6,7 @@ const diamondArmorPices = {
 };
 
 /**
- * @param { string[] } ingot Ingots/dusts in crafting
+ * @param { string[] } ingot
  */
 function fusedObsidians(ingot) {
     return {
@@ -16,6 +16,35 @@ function fusedObsidians(ingot) {
         E: "thermal:earth_charge",
     };
 }
+
+/**
+ * @param { Special.EntityType } entity
+ * @param { number } newHealth
+ */
+function regenerateFromHalfHealth(entity, newHealth) {
+    let firstTimeSpawned = true;
+    let lastEntity = "";
+    EntityEvents.hurt(entity, (event) => {
+        const entity = event.getEntity();
+        const halfHealth = Math.round(entity.getMaxHealth() / 2);
+
+        if (
+            (firstTimeSpawned || lastEntity !== entity.getUuid()) &&
+            Math.round(entity.getNbt().getFloat("Health")) <= halfHealth
+        ) {
+            Utils.server.runCommand(
+                `attribute ${entity.getUuid()} minecraft:generic.max_health base set ${newHealth}`
+            );
+
+            entity.setHealth(entity.getMaxHealth());
+
+            firstTimeSpawned = false;
+            lastEntity = entity.getUuid();
+        }
+    });
+}
+
+regenerateFromHalfHealth("pig", 50);
 
 const fusedObsidiansTempl = [" L ", "IOI", " E "];
 
@@ -45,15 +74,13 @@ ServerEvents.entityLootTables((event) => {
     });
 });
 
-ServerEvents.chestLootTables((event) => {
-    // event.modify(ResourceLocation.of(""))
-    // event.addChest("minecraft:chests/?")
-    // event.addChest("minecraft:chests/end_city_treasure", (pool) => {
-    //     pool.pools.remove({
-    //         name: "simplyswords:runic_tablet",
-    //     });
-    // });
-});
+// EntityEvents.checkSpawn("pig", (event) => {
+//     const entity = event.getEntity();
+//     entity.nbt.remove("Health");
+//     entity.nbt.putFloat("Health", 2000000);
+//     console.log(`To jest z checkSpawn: ${entity.getNbt().getFloat("Health")}`);
+//     console.log(`To jest z checkSpawn: ${entity.getNbt().getFloat("Health")}`);
+// });
 
 LootJS.modifiers((event) => {
     event.enableLogging();

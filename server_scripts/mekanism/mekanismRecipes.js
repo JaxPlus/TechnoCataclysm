@@ -32,6 +32,7 @@ ServerEvents.recipes((event) => {
     event.remove("mekaweapons:mekatana");
     event.remove("mekaweapons:mekabow");
     event.remove("mekanism:modification_station");
+    event.remove("mekanism:digital_miner");
 
     // zamień żelazo z innym mid game ingotem
     event.shaped("mekanism:metallurgic_infuser", ["SFS", "ROR", "SFS"], {
@@ -111,6 +112,15 @@ ServerEvents.recipes((event) => {
         P: "#forge:pellets/polonium",
         E: "#forge:chests/wooden",
         S: "mekanism:steel_casing",
+    });
+
+    event.shaped("mekanism:digital_miner", ["CAC", "SRS", "TET"], {
+        A: "#mekanism:alloys/atomic",
+        C: "#forge:circuits/meka",
+        S: "mekanism:logistical_sorter",
+        R: "mekanism:robit",
+        E: "mekanism:steel_casing",
+        T: "mekanism:teleportation_core",
     });
 
     event.custom({
