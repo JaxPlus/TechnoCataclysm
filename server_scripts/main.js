@@ -44,8 +44,6 @@ function regenerateFromHalfHealth(entity, newHealth) {
     });
 }
 
-regenerateFromHalfHealth("pig", 50);
-
 const fusedObsidiansTempl = [" L ", "IOI", " E "];
 
 ServerEvents.entityLootTables((event) => {
@@ -74,14 +72,6 @@ ServerEvents.entityLootTables((event) => {
     });
 });
 
-// EntityEvents.checkSpawn("pig", (event) => {
-//     const entity = event.getEntity();
-//     entity.nbt.remove("Health");
-//     entity.nbt.putFloat("Health", 2000000);
-//     console.log(`To jest z checkSpawn: ${entity.getNbt().getFloat("Health")}`);
-//     console.log(`To jest z checkSpawn: ${entity.getNbt().getFloat("Health")}`);
-// });
-
 LootJS.modifiers((event) => {
     event.enableLogging();
 
@@ -104,6 +94,14 @@ LootJS.modifiers((event) => {
     event
         .addEntityLootModifier("minecraft:ender_dragon")
         .removeLoot("#simplyswords:uniques");
+
+    event
+        .addLootTableModifier(LootType.CHEST)
+        .removeLoot("#forge:tools/netherite");
+
+    event
+        .addLootTableModifier(LootType.CHEST)
+        .removeLoot("#forge:armor/netherite");
 });
 
 ServerEvents.recipes((event) => {
@@ -116,8 +114,9 @@ ServerEvents.recipes((event) => {
     event.remove("minecraft:netherite_upgrade_smithing_template");
     event.remove("minecraft:anvil");
 
-    // żeby zrobić Runic Tablet wykorzystać Celestial Fusion Ingot
-    // i usuń z loottable
+    /**
+     * @todo ZMIEŃ RECIPE RUNE TABLETA NA COŚ INNEGO
+     */
 
     // Custom Items
     event.shaped(

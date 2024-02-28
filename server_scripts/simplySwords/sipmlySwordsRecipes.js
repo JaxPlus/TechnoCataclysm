@@ -101,4 +101,61 @@ ServerEvents.recipes((event) => {
         O: "kubejs:obsidian_block_enderium",
         R: "#forge:rods/steel",
     });
+
+    event.shaped("simplyswords:frostfall", ["ICI", "ODO", " R "], {
+        I: "minecraft:blue_ice",
+        O: "#forge:ingots/refined_obsidian",
+        D: "#forge:gems/diamond",
+        C: "thermal:ice_charge",
+        R: "#forge:rods/nickel",
+    });
+
+    event.shaped("simplyswords:molten_edge", ["BOB", "PRP", " R "], {
+        B: "thermal:basalz_powder",
+        O: "kubejs:obsidian_block_signalum",
+        R: "#forge:rods/enderium",
+        P: "minecraft:blaze_powder",
+    });
+
+    event.shaped("simplyswords:icewhisper", [" RB", "DNR", "N  "], {
+        R: "#forge:alloys/elite",
+        B: "thermal:blizz_rod",
+        N: "#forge:rods/netherite",
+        D: "#forge:gems/diamond",
+    });
+
+    event.shaped("simplyswords:thunderbrand", [" AL", "ARO", "R  "], {
+        R: "#forge:rods/netherite",
+        A: "#forge:alloys/ultimate",
+        L: "thermal:lightning_charge",
+        O: "kubejs:obsidian_block_enderium",
+    });
+
+    event.shaped("simplyswords:mjolnir", ["CSC", "SLS", " R "], {
+        R: "#forge:rods/enderium",
+        C: "kubejs:celestial_fusion_ingot",
+        S: "#forge:ingots/steel",
+        L: "thermal:lightning_charge",
+    });
+
+    event.shaped("simplyswords:livyatan", ["MBM", "ARA", " R "], {
+        R: "#forge:rods/netherite",
+        A: "#forge:alloys/elite",
+        B: "thermal:blizz_rod",
+        M: "#blue_skies:gems/moonstone",
+    });
+
+    event.shaped("simplyswords:arcanethyst", [" AP", "SCA", "C S"], {
+        A: "#forge:alloys/ultimate",
+        P: "minecraft:phantom_membrane",
+        S: "minecraft:shulker_shell",
+        C: "#forge:rods/celestial",
+    });
+
+    event.shaped("simplyswords:slumbering_lichblade", ["  N", "BS ", "RB "], {
+        N: "#forge:ingots/netherite",
+        B: "minecraft:bone",
+        S: "minecraft:skeleton_skull",
+        R: "#forge:rods/netherite",
+    });
 });
