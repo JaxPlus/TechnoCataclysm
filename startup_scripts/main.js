@@ -54,6 +54,31 @@ StartupEvents.registry("item", (event) => {
         .displayName("§7Meka Control Circuit")
         .tag("forge:circuits")
         .tag("forge:circuits/meka");
+
+    event
+        .create("shattered_celestial_blade", "sword")
+        .displayName("§4Shattered Celestial Blade")
+        .attackDamageBaseline(3)
+        .attackDamageBonus(2)
+        .maxDamage(1497)
+        .speed(1)
+        .speedBaseline(-2.25)
+        .modifyTier((tier) => {
+            tier.setEnchantmentValue(20);
+            tier.setLevel(3);
+            tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
+        });
+
+    // event
+    //     .create("arachnarch_fang_2", "basic")
+    //     .displayName("Something Souls")
+    //     .containerItem("minecraft:interact_with_crafting_table")
+    //     .get()
+    //     .damageItem("kubejs:arachnarch_fang_2", 1, null, null)
+    //     .maxDamage(5)
+    //     .createItemProperties()
+    //     .durability(5)
+    //     .defaultDurability(5);
 });
 
 ItemEvents.modification((event) => {

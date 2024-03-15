@@ -114,9 +114,7 @@ ServerEvents.recipes((event) => {
     event.remove("minecraft:netherite_upgrade_smithing_template");
     event.remove("minecraft:anvil");
 
-    /**
-     * @todo ZMIEŃ RECIPE RUNE TABLETA NA COŚ INNEGO
-     */
+    /** @todo ZMIEŃ RECIPE RUNE TABLETA NA COŚ INNEGO */
 
     // Custom Items
     event.shaped(
@@ -129,6 +127,14 @@ ServerEvents.recipes((event) => {
         fusedObsidiansTempl,
         fusedObsidians(["thermal:enderium_ingot", "thermal:enderium_dust"])
     );
+    /** @todo ZAMIEŃ TĄ DUSZĘ */
+    event.shaped("kubejs:shattered_celestial_blade", [" SP", "COS", "DC "], {
+        S: "#forge:ingots/signalum",
+        P: "#blue_skies:gems/pyrope",
+        C: "kubejs:celestial_fusion_ingot",
+        O: "kubejs:ender_soul",
+        D: "#forge:gems/diamond",
+    });
 
     // Common Items
     event.shaped("minecraft:enchanting_table", [" B ", "CSC", "ESE"], {
