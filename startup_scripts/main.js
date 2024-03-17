@@ -27,11 +27,13 @@ StartupEvents.registry("block", (event) => {
 StartupEvents.registry("item", (event) => {
     event
         .create("celestial_fusion_ingot")
-        .displayName("§4Celestial Fusion Ingot");
+        .displayName("§5Celestial Fusion Ingot")
+        .tag("forge:ingots")
+        .tag("balm:ingots");
 
     event
         .create("celestial_rod")
-        .displayName("§4Celestial Rod")
+        .displayName("§5Celestial Rod")
         .tag("forge:rods")
         .tag("forge:rods/celestial")
         .tag("forge:rods/metal");
@@ -54,6 +56,15 @@ StartupEvents.registry("item", (event) => {
         .displayName("§7Meka Control Circuit")
         .tag("forge:circuits")
         .tag("forge:circuits/meka");
+
+    event.create("arachnarch_eye").displayName("§aArachnarch Eye");
+    event.create("summoners_grimoire").displayName("§8Summoner's Grimoire");
+    event.create("starlit_bark").displayName("§7Starlit Bark");
+    event
+        .create("smoldering_piece_of_paper")
+        .displayName("§6Smoldering Piece Of Paper");
+
+    event.create("blue_skies_soul").displayName("§bBlue §cSkies §rSoul");
 
     event
         .create("shattered_celestial_blade", "sword")

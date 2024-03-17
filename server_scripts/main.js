@@ -69,6 +69,31 @@ ServerEvents.entityLootTables((event) => {
         table.addPool((pool) => {
             pool.addItem("kubejs:arachnarch_fang").count({ min: 1, max: 2 });
         });
+
+        table.addPool((pool) => {
+            pool.addItem("kubejs:arachnarch_eye");
+        });
+    });
+
+    event.modifyEntity("blue_skies:alchemist", (table) => {
+        table.addPool((pool) => {
+            pool.addItem("kubejs:smoldering_piece_of_paper").count({
+                min: 1,
+                max: 1,
+            });
+        });
+    });
+
+    event.modifyEntity("blue_skies:starlit_crusher", (table) => {
+        table.addPool((pool) => {
+            pool.addItem("kubejs:starlit_bark");
+        });
+    });
+
+    event.modifyEntity("blue_skies:summoner", (table) => {
+        table.addPool((pool) => {
+            pool.addItem("kubejs:summoners_grimoire");
+        });
     });
 });
 
@@ -127,13 +152,20 @@ ServerEvents.recipes((event) => {
         fusedObsidiansTempl,
         fusedObsidians(["thermal:enderium_ingot", "thermal:enderium_dust"])
     );
-    /** @todo ZAMIEŃ TĄ DUSZĘ */
     event.shaped("kubejs:shattered_celestial_blade", [" SP", "COS", "DC "], {
         S: "#forge:ingots/signalum",
         P: "#blue_skies:gems/pyrope",
         C: "kubejs:celestial_fusion_ingot",
-        O: "kubejs:ender_soul",
+        O: "kubejs:blue_skies_soul",
         D: "#forge:gems/diamond",
+    });
+    event.shaped("kubejs:blue_skies_soul", ["CEC", "PSG", "CBC"], {
+        C: "kubejs:celestial_fusion_ingot",
+        P: "kubejs:smoldering_piece_of_paper",
+        E: "kubejs:arachnarch_eye",
+        S: "blue_skies:soul_fragment",
+        G: "kubejs:summoners_grimoire",
+        B: "kubejs:starlit_bark",
     });
 
     // Common Items
