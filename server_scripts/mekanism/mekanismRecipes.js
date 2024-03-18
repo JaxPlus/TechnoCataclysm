@@ -42,10 +42,11 @@ ServerEvents.recipes((event) => {
         O: "mekanism:ingot_osmium",
     });
 
-    event.shaped("mekanism:atomic_disassembler", ["ITE", "IAE", " O "], {
+    event.shaped("mekanism:atomic_disassembler", ["ITM", "IAE", " O "], {
         I: "mekanism:alloy_infused",
+        M: "#forge:circuits/meka",
         O: "mekanism:ingot_refined_obsidian",
-        E: "deeperdarker:reinforced_echo_shard",
+        E: "#forge:ingots/enderium",
         A: "#forge:alloys/ultimate",
         T: "mekanism:energy_tablet",
     });

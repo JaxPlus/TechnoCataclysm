@@ -25,6 +25,7 @@ StartupEvents.registry("block", (event) => {
 });
 
 StartupEvents.registry("item", (event) => {
+    /** @todo DODAJ TOOLTIPY */
     event
         .create("celestial_fusion_ingot")
         .displayName("§5Celestial Fusion Ingot")

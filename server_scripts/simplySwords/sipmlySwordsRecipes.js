@@ -1,9 +1,13 @@
 ServerEvents.recipes((event) => {
-    event.shaped("simplyswords:runic_tablet", [" S ", "CPC", "RRR"], {
-        S: "kubejs:ender_soul",
+    event.remove("simplyswords:harbinger");
+    event.remove("simplyswords:sunfire");
+
+    event.shaped("simplyswords:runic_tablet", ["RIR", "CPC", "RAR"], {
         C: "kubejs:celestial_fusion_ingot",
         P: "minecraft:paper",
         R: "deeperdarker:reinforced_echo_shard",
+        I: Ingredient.of("minecraft:iron_sword"),
+        A: Ingredient.of("blue_skies:aquite_sword"),
     });
 
     event.shaped("simplyswords:bramblethorn", [" F ", "SBF", "BS "], {
@@ -157,5 +161,111 @@ ServerEvents.recipes((event) => {
         B: "minecraft:bone",
         S: "minecraft:skeleton_skull",
         R: "#forge:rods/netherite",
+    });
+
+    event.shaped("simplyswords:shadowsting", [" PC", "GEP", "RG "], {
+        G: "minecraft:gold_ingot",
+        P: "minecraft:ender_pearl",
+        C: "kubejs:celestial_fusion_ingot",
+        R: "#forge:rods/netherite",
+        E: "thermal:enderium_ingot",
+    });
+
+    event.shaped("simplyswords:dormant_relic", [" CL", "ELC", "RE "], {
+        C: "thermal:lightning_charge",
+        L: "mekanism:ingot_refined_glowstone",
+        E: "#forge:ingots/enderium",
+        R: "#forge:rods/enderium",
+    });
+
+    event.shaped("simplyswords:whisperwind", ["L L", "RIN", " L "], {
+        L: "thermal:lightning_charge",
+        R: "#forge:rods/netherite",
+        I: "cataclysm:ignitium_ingot",
+        N: "#forge:nether_stars",
+    });
+
+    event.shaped("simplyswords:emberlash", [" E ", "IN ", "R  "], {
+        E: "minecraft:enchanted_golden_apple",
+        I: "cataclysm:ignitium_ingot",
+        N: "#forge:ingots/netherite",
+        R: "#forge:rods/netherite",
+    });
+
+    event.shaped("simplyswords:sunfire", ["EIE", "RGR", "EBE"], {
+        E: "minecraft:enchanted_golden_apple",
+        I: "cataclysm:ignitium_ingot",
+        B: "apotheosis:infused_breath",
+        G: "simplyswords:righteous_relic",
+        R: "simplyswords:runic_tablet",
+    });
+
+    event.shaped("simplyswords:harbinger", ["EIE", "RTR", "ESE"], {
+        E: "minecraft:ender_eye",
+        I: "cataclysm:ignitium_ingot",
+        T: "simplyswords:tainted_relic",
+        R: "simplyswords:runic_tablet",
+        S: "apotheosis:soul_touched_sculkshelf",
+    });
+
+    event.shaped("simplyswords:waxweaver", ["HNI", "LIN", "RLH"], {
+        I: "cataclysm:ignitium_ingot",
+        N: "#forge:nether_stars",
+        L: "#forge:ingots/refined_glowstone",
+        R: "#forge:rods/netherite",
+        H: "minecraft:honeycomb",
+    });
+
+    event.shaped("simplyswords:hiveheart", ["IHI", "LNL", " R "], {
+        I: "cataclysm:ignitium_ingot",
+        H: "minecraft:honeycomb_block",
+        N: "#forge:nether_stars",
+        R: "#forge:rods/netherite",
+        L: "#forge:ingots/refined_glowstone",
+    });
+
+    event.shaped("simplyswords:stars_edge", [" EG", "LRE", "NL "], {
+        E: "#forge:ingots/enderium",
+        G: "#forge:ingots/refined_glowstone",
+        L: "#forge:ingots/lumium",
+        R: "#forge:rods/netherite",
+        N: "#forge:nether_stars",
+    });
+
+    event.shaped("simplyswords:wickpiercer", ["INI", "EHE", " R "], {
+        I: "cataclysm:ignitium_ingot",
+        N: "#forge:nether_stars",
+        E: "minecraft:enchanted_golden_apple",
+        H: "minecraft:honeycomb_block",
+        R: "#forge:rods/netherite",
+    });
+
+    event.shaped("simplyswords:tempest", ["FCV", "G O", "SBL"], {
+        F: "#blue_skies:nuggets/falsite",
+        C: "kubejs:celestial_fusion_ingot",
+        V: "#blue_skies:nuggets/ventium",
+        O: "#forge:ingots/refined_obsidian",
+        G: "#forge:ingots/refined_glowstone",
+        S: "#forge:nuggets/signalum",
+        L: "#forge:nuggets/lumium",
+        B: "#forge:rods/blaze",
+    });
+
+    event.shaped("simplyswords:flamewind", [" BB", " RO", "S L"], {
+        B: "thermal:basalz_rod",
+        O: "kubejs:obsidian_block_signalum",
+        R: "#forge:rods/blaze",
+        S: "blue_skies:starlit_stick",
+        L: "#forge:ingots/lumium",
+    });
+
+    event.shaped("simplyswords:ribboncleaver", ["BRO", "IOC", "EIK"], {
+        B: "minecraft:beef",
+        I: "cataclysm:ignitium_ingot",
+        C: "minecraft:chicken",
+        O: "mekanism:block_osmium",
+        R: "minecraft:rabbit",
+        E: "#forge:rods/celestial",
+        K: "minecraft:mutton",
     });
 });

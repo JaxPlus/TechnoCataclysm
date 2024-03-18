@@ -61,7 +61,7 @@ ServerEvents.entityLootTables((event) => {
         table.clearPools();
 
         table.addPool((pool) => {
-            pool.addItem("kubejs:ender_soul", 1, 1).count({ min: 1, max: 2 });
+            pool.addItem("kubejs:ender_soul").count({ min: 3, max: 5 });
         });
     });
 
