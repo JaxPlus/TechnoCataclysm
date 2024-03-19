@@ -58,6 +58,9 @@ StartupEvents.registry("item", (event) => {
         .tag("forge:circuits")
         .tag("forge:circuits/meka");
 
+    event.create("diamond_core").displayName("§bDiamond Core");
+    event.create("infused_diamond_core").displayName("§3Infused Diamond Core");
+
     event.create("arachnarch_eye").displayName("§aArachnarch Eye");
     event.create("summoners_grimoire").displayName("§8Summoner's Grimoire");
     event.create("starlit_bark").displayName("§7Starlit Bark");
@@ -80,17 +83,6 @@ StartupEvents.registry("item", (event) => {
             tier.setLevel(3);
             tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
         });
-
-    // event
-    //     .create("arachnarch_fang_2", "basic")
-    //     .displayName("Something Souls")
-    //     .containerItem("minecraft:interact_with_crafting_table")
-    //     .get()
-    //     .damageItem("kubejs:arachnarch_fang_2", 1, null, null)
-    //     .maxDamage(5)
-    //     .createItemProperties()
-    //     .durability(5)
-    //     .defaultDurability(5);
 });
 
 ItemEvents.modification((event) => {

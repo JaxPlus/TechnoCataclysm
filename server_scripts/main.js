@@ -2,7 +2,7 @@
 
 const diamondArmorPices = {
     D: "minecraft:diamond",
-    C: "blue_skies:charoite",
+    C: "kubejs:infused_diamond_core",
 };
 
 /**
@@ -43,6 +43,9 @@ function regenerateFromHalfHealth(entity, newHealth) {
         }
     });
 }
+
+regenerateFromHalfHealth("cataclysm:the_leviathan", 650);
+regenerateFromHalfHealth("minecraft:ender_dragon", 500);
 
 const fusedObsidiansTempl = [" L ", "IOI", " E "];
 
@@ -167,6 +170,12 @@ ServerEvents.recipes((event) => {
         G: "kubejs:summoners_grimoire",
         B: "kubejs:starlit_bark",
     });
+    event.shaped("kubejs:diamond_core", ["DCH", "CAC", "HCD"], {
+        D: "#forge:gems/diamond",
+        C: "kubejs:celestial_fusion_ingot",
+        A: "#forge:circuits/advanced",
+        H: "blue_skies:charoite",
+    });
 
     // Common Items
     event.shaped("minecraft:enchanting_table", [" B ", "CSC", "ESE"], {
@@ -194,7 +203,6 @@ ServerEvents.recipes((event) => {
     });
 
     // Armors
-    /** @todo ZMIEŃ JAK SIĘ ROBI TEN ARMOR */
     event.shaped(
         "minecraft:diamond_helmet",
         ["   ", "DCD", "D D"],
@@ -212,7 +220,7 @@ ServerEvents.recipes((event) => {
     );
     event.shaped(
         "minecraft:diamond_boots",
-        ["   ", "C C", "D D"],
+        ["   ", "D D", "DCD"],
         diamondArmorPices
     );
 });

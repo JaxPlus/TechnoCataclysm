@@ -141,6 +141,22 @@ ServerEvents.recipes((event) => {
     });
 
     event.custom({
+        type: "mekanism:compressing",
+        chemicalInput: {
+            amount: 3,
+            gas: "mekanism:osmium",
+        },
+        itemInput: {
+            ingredient: {
+                item: "kubejs:diamond_core",
+            },
+        },
+        output: {
+            item: "kubejs:infused_diamond_core",
+        },
+    });
+
+    event.custom({
         type: "mekanism:enriching",
         input: {
             ingredient: {
