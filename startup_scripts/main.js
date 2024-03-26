@@ -71,9 +71,16 @@ StartupEvents.registry("item", (event) => {
     event.create("blue_skies_soul").displayName("§bBlue §cSkies §rSoul");
 
     event
+        .create("celestial_smithing_template", "smithing_template")
+        .appliesTo("Celestial Blade")
+        .ingredients("Celestial Fusion Ingot")
+        .appliesToSlotDescription("Add Celestial Blade")
+        .ingredientsSlotDescription("Add Celestial Fusion Ingot")
+        .displayName("§6Smithing Template");
+
+    event
         .create("shattered_celestial_blade", "sword")
         .displayName("§4Shattered Celestial Blade")
-        .attackDamageBaseline(3)
         .attackDamageBonus(2)
         .maxDamage(1497)
         .speed(1)
@@ -81,6 +88,32 @@ StartupEvents.registry("item", (event) => {
         .modifyTier((tier) => {
             tier.setEnchantmentValue(20);
             tier.setLevel(3);
+            tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
+        });
+
+    event
+        .create("celestial_blade", "sword")
+        .displayName("§4Celestial Blade")
+        .attackDamageBonus(3)
+        .maxDamage(2873)
+        .speed(1)
+        .speedBaseline(-2)
+        .modifyTier((tier) => {
+            tier.setEnchantmentValue(30);
+            tier.setLevel(4);
+            tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
+        });
+
+    event
+        .create("arc_of_the_cataclysm", "sword")
+        .displayName("§4Arc Of The Cataclysm")
+        .attackDamageBonus(6)
+        .maxDamage(9543)
+        .speed(1)
+        .speedBaseline(-2)
+        .modifyTier((tier) => {
+            tier.setEnchantmentValue(40);
+            tier.setLevel(4);
             tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
         });
 });

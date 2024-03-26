@@ -160,9 +160,35 @@ ServerEvents.recipes((event) => {
         P: "#blue_skies:gems/pyrope",
         C: "kubejs:celestial_fusion_ingot",
         O: "kubejs:blue_skies_soul",
-        D: "#forge:gems/diamond",
+        D: "kubejs:infused_diamond_core",
     });
-    event.shaped("kubejs:blue_skies_soul", ["CEC", "PSG", "CBC"], {
+    event.shaped("kubejs:celestial_blade", ["O N", "CS ", "ECO"], {
+        O: "kubejs:obsidian_block_signalum",
+        S: "kubejs:shattered_celestial_blade",
+        C: "kubejs:celestial_fusion_ingot",
+        N: "minecraft:nether_star",
+        E: "kubejs:ender_soul",
+    });
+    event.custom({
+        type: "minecraft:smithing_transform",
+        template: { item: "kubejs:celestial_smithing_template" },
+        base: {
+            item: "kubejs:celestial_blade",
+        },
+        addition: {
+            item: "kubejs:celestial_fusion_ingot",
+        },
+        result: {
+            item: "kubejs:arc_of_the_cataclysm",
+        },
+    });
+    event.shaped("kubejs:celestial_smithing_template", ["WTW", "IRI", "WIW"], {
+        W: "cataclysm:witherite_ingot",
+        T: "cataclysm:ignitium_upgrade_smithing_template",
+        I: "cataclysm:ignitium_ingot",
+        R: "simplyswords:empowered_remnant",
+    });
+    event.shaped(Item.of("kubejs:blue_skies_soul", 2), ["CEC", "PSG", "CBC"], {
         C: "kubejs:celestial_fusion_ingot",
         P: "kubejs:smoldering_piece_of_paper",
         E: "kubejs:arachnarch_eye",

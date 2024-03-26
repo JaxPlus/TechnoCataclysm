@@ -2,7 +2,7 @@
 
 const charoiteArmorPices = {
     C: "blue_skies:charoite",
-    D: "minecraft:diamond",
+    D: "kubejs:infused_diamond_core",
 };
 
 ServerEvents.recipes((event) => {
@@ -31,7 +31,7 @@ ServerEvents.recipes((event) => {
     );
     event.shaped(
         "blue_skies:charoite_boots",
-        ["   ", "D D", "C C"],
+        ["   ", "C C", "CDC"],
         charoiteArmorPices
     );
 });
