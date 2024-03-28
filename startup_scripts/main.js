@@ -24,8 +24,43 @@ StartupEvents.registry("block", (event) => {
         .requiresTool(true);
 });
 
+ItemEvents.toolTierRegistry((event) => {
+    event.add("celestial", (tier) => {
+        tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
+        tier.setEnchantmentValue(25);
+        tier.speed = 2;
+        tier.setLevel(5);
+        tier.setAttackDamageBonus(4);
+        tier.setUses(1800);
+    });
+});
+
 StartupEvents.registry("item", (event) => {
     /** @todo DODAJ TOOLTIPY */
+    event
+        .create("shattered_celestial_blade", "sword")
+        .displayName("§4Shattered Celestial Blade")
+        .speedBaseline(-2.4)
+        .attackDamageBaseline(2)
+        .tier("celestial");
+
+    event
+        .create("celestial_blade_2", "sword")
+        .displayName("§4Celestial Blade")
+        .tier("celestial")
+        .attackDamageBaseline(4.5)
+        .speedBaseline(-2.2)
+        .maxDamage(2873);
+
+    event
+        .create("celestial_blade", "sword")
+        .displayName("§4Arc of the Cataclysm")
+        .rarity("epic")
+        .tier("celestial")
+        .speedBaseline(-2)
+        .attackDamageBaseline(9)
+        .maxDamage(6432);
+
     event
         .create("celestial_fusion_ingot")
         .displayName("§5Celestial Fusion Ingot")
@@ -77,45 +112,6 @@ StartupEvents.registry("item", (event) => {
         .appliesToSlotDescription("Add Celestial Blade")
         .ingredientsSlotDescription("Add Celestial Fusion Ingot")
         .displayName("§6Smithing Template");
-
-    event
-        .create("shattered_celestial_blade", "sword")
-        .displayName("§4Shattered Celestial Blade")
-        .attackDamageBonus(2)
-        .maxDamage(1497)
-        .speed(1)
-        .speedBaseline(-2.25)
-        .modifyTier((tier) => {
-            tier.setEnchantmentValue(20);
-            tier.setLevel(3);
-            tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
-        });
-
-    event
-        .create("celestial_blade", "sword")
-        .displayName("§4Celestial Blade")
-        .attackDamageBonus(3)
-        .maxDamage(2873)
-        .speed(1)
-        .speedBaseline(-2)
-        .modifyTier((tier) => {
-            tier.setEnchantmentValue(30);
-            tier.setLevel(4);
-            tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
-        });
-
-    event
-        .create("arc_of_the_cataclysm", "sword")
-        .displayName("§4Arc Of The Cataclysm")
-        .attackDamageBonus(6)
-        .maxDamage(9543)
-        .speed(1)
-        .speedBaseline(-2)
-        .modifyTier((tier) => {
-            tier.setEnchantmentValue(40);
-            tier.setLevel(4);
-            tier.setRepairIngredient("kubejs:celestial_fusion_ingot");
-        });
 });
 
 ItemEvents.modification((event) => {

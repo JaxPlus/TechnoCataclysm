@@ -162,7 +162,7 @@ ServerEvents.recipes((event) => {
         O: "kubejs:blue_skies_soul",
         D: "kubejs:infused_diamond_core",
     });
-    event.shaped("kubejs:celestial_blade", ["O N", "CS ", "ECO"], {
+    event.shaped("kubejs:celestial_blade_2", ["O N", "CS ", "ECO"], {
         O: "kubejs:obsidian_block_signalum",
         S: "kubejs:shattered_celestial_blade",
         C: "kubejs:celestial_fusion_ingot",
@@ -173,13 +173,13 @@ ServerEvents.recipes((event) => {
         type: "minecraft:smithing_transform",
         template: { item: "kubejs:celestial_smithing_template" },
         base: {
-            item: "kubejs:celestial_blade",
+            item: "kubejs:celestial_blade_2",
         },
         addition: {
             item: "kubejs:celestial_fusion_ingot",
         },
         result: {
-            item: "kubejs:arc_of_the_cataclysm",
+            item: "kubejs:celestial_blade",
         },
     });
     event.shaped("kubejs:celestial_smithing_template", ["WTW", "IRI", "WIW"], {
