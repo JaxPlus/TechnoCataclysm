@@ -213,12 +213,13 @@ ServerEvents.recipes((event) => {
     /** @todo ZMIEŃ NA COŚ Z CELESTIAL FUSION INGOT */
     event.shaped(
         "minecraft:netherite_upgrade_smithing_template",
-        ["DSD", "CNC", "DCD"],
+        ["DSD", "CNC", "DED"],
         {
             D: "minecraft:diamond",
             S: "minecraft:netherite_upgrade_smithing_template",
             C: "cataclysm:amethyst_crab_shell",
             N: "minecraft:netherrack",
+            E: "kubejs:celestial_fusion_ingot",
         }
     );
     event.shaped("minecraft:anvil", ["OIO", " F ", "RFR"], {

@@ -29,6 +29,7 @@ ServerEvents.recipes((event) => {
     event.remove("cataclysm:smithing/ignitium_chestplate");
     event.remove("cataclysm:smithing/ignitium_leggings");
     event.remove("cataclysm:smithing/ignitium_boots");
+    event.remove("cataclysm:abyssal_sacrifice");
 
     event.shaped("cataclysm:the_incinerator", [" BI", "BCB", "NB "], {
         B: "minecraft:blaze_rod",
@@ -95,6 +96,17 @@ ServerEvents.recipes((event) => {
         result: {
             item: "cataclysm:infernal_forge",
         },
+    });
+
+    event.shaped("cataclysm:abyssal_sacrifice", ["NAC", "ISW", "EVE"], {
+        N: "minecraft:nautilus_shell",
+        A: "cataclysm:athame",
+        C: "cataclysm:crystallized_coral",
+        I: "cataclysm:ignitium_ingot",
+        S: "kubejs:blue_skies_soul",
+        W: "cataclysm:witherite_ingot",
+        E: "#forge:storage_blocks/netherite",
+        V: "cataclysm:void_core",
     });
 
     event.custom(
